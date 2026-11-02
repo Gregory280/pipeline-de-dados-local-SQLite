@@ -43,10 +43,10 @@ Tabela contendo informações de cadastro de pessoas que se inscreveram na acade
 | email | Endereço de e-mail informado pelo aluno | Texto | TEXT | Sim | — | Endereço de e-mail não vazio | Padronizar espaços e letras minúsculas |
 | telefone | Telefone de contato informado pelo aluno | Texto | TEXT | Sim | — | Telefone com DDD | Remover caracteres de formatação. Aceitar somente 11 dígitos, caso contrário colocar NULL |
 | sexo | Informação de sexo registrada no cadastro | Texto | TEXT | Sim | — | Preenchimento por M, F e Não informado | Não inferir o sexo pelo nome, deixar Não informado como valor válido. |
-| data_nascimento | Data de nascimento do aluno | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | DD-MM-AAAA | Gerar a data de nascimento a partir dos dias calculados do Excel |
+| data_nascimento | Data de nascimento do aluno | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | AAAA-MM-DD | Gerar a data de nascimento a partir dos dias calculados do Excel |
 | cidade | Cidade de residência informada pelo aluno | Texto | TEXT | Sim | — | Mesma cidade da academia | — |
 | estado | Unidade federativa de residência do aluno | Texto | TEXT | Sim | — | Sigla de UF brasileira, com duas letras | — |
-| data_matricula | Data da primeira inscrição do aluno na academia | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | DD-MM-AAAA | Não representa todas as contratações ou renovações. Esse histórico pertence à fonte matriculas. |
+| data_matricula | Data da primeira inscrição do aluno na academia | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | AAAA-MM-DD | Não representa todas as contratações ou renovações. Esse histórico pertence à fonte matriculas. |
 | status | Situação atual do aluno no cadastro | Texto | TEXT | Sim | — | Ativo ou Inativo, conforme categorias confirmadas na fonte | Confirmar o critério operacional. |
 
 **Categorias e códigos**
@@ -102,9 +102,9 @@ Tabela contendo informações de cadastro de pessoas que se inscreveram na acade
 | matricula_id | Identificador único da contratação de um plano | Númerico sequencial | INTEGER | Sim | PK | Inteiro positivo e único | Cada contratação ou renovação gera uma nova matrícula. |
 | aluno_id | Identificador do aluno que contratou o plano | Númerico | Mesmo tipo de alunos.aluno_id | Sim | FK | Identificador existente na fonte alunos | Deve corresponder a um aluno cadastrado. |
 | plano_id | Identificador do plano contratado | Númerico | Mesmo tipo de planos.plano_id | Sim | FK | Identificador existente na fonte planos | Deve corresponder a um plano do catálogo. |
-| data_inicio | Data de início da vigência da matrícula | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Formato DD-MM-AAAA | Converter números seriais do Excel quando necessário. |
-| data_fim | Data de término da vigência, considerando eventual cancelamento | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Formato DD-MM-AAAA | Nesta simulação, também está preenchida para matrículas ativas, podendo ser futura. Deve ser posterior à data_inicio. O dia de término não faz parte da vigência. |
-| data_fim_prevista | Data de término originalmente prevista para o contrato | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Formato DD-MM-AAAA | Preserva o término planejado. Em um cancelamento antecipado, data_fim será anterior a esta data. |
+| data_inicio | Data de início da vigência da matrícula | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Formato AAAA-MM-DD | Converter números seriais do Excel quando necessário. |
+| data_fim | Data de término da vigência, considerando eventual cancelamento | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Formato AAAA-MM-DD | Nesta simulação, também está preenchida para matrículas ativas, podendo ser futura. Deve ser posterior à data_inicio. O dia de término não faz parte da vigência. |
+| data_fim_prevista | Data de término originalmente prevista para o contrato | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Formato AAAA-MM-DD | Preserva o término planejado. Em um cancelamento antecipado, data_fim será anterior a esta data. |
 | status | Situação da matrícula na data de referência da fonte | Texto | TEXT | Sim | — | Ativa, Encerrada ou Cancelada | — |
 | motivo_cancelamento | Motivo registrado para o cancelamento da matrícula | Texto | TEXT | Condicional: Sim quando Cancelada | — | Texto; NULL quando não houver cancelamento | — |
 
@@ -133,8 +133,8 @@ Tabela contendo informações de cadastro de pessoas que se inscreveram na acade
 | competencia | Mês de referência da cobrança | Texto | Data, armazenada como texto ISO no SQLite | Sim | — | AAAA-MM | Não representa necessariamente o mês do recebimento |
 | valor | Valor monetário cobrado | Númerico | REAL | Sim | — | BRL; valor positivo com duas casas decimais | — |
 | valor_pago | Valor monetário recebido para a cobrança | Númerico | REAL | Sim | — | BRL; valor positivo com duas casas decimais | Nesta simulação, é zero quando não pago e igual a valor quando pago. Zero não significa informação ausente. |
-| data_vencimento | Data limite para pagamento da cobrança | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Data no formato DD-MM-AAAA | Converter o serial do Excel para formato de data |
-| data_pagamento | Data em que o pagamento foi realizado | Númerico | Data, armazenada como texto ISO no SQLite | Condicional: Sim quando Pago | — | Data no formato DD-MM-AAAA | — |
+| data_vencimento | Data limite para pagamento da cobrança | Númerico | Data, armazenada como texto ISO no SQLite | Sim | — | Data no formato AAAA-MM-DD | Converter o serial do Excel para formato de data |
+| data_pagamento | Data em que o pagamento foi realizado | Númerico | Data, armazenada como texto ISO no SQLite | Condicional: Sim quando Pago | — | Data no formato AAAA-MM-DD | — |
 | forma_pagamento | Meio utilizado para realizar o pagamento | Texto | TEXT | Sim | — | PIX, Cartão de crédito, Cartão de débito ou Dinheiro; NULL quando não pago | — |
 | status | Situação financeira da cobrança na data de referência | Texto | TEXT | Sim | — | Pago, Atrasado ou Em aberto | — |
 
@@ -179,4 +179,4 @@ Preencha quando houver status, categorias ou códigos. Diferencie os valores enc
 | Data | Alteração | Responsável |
 |---|---|---|
 | 07-10-2026 | Criação do dicionário de dados | Gregory N. M. |
-
+| 02-11-2026 | Devido à natureza de como SQLite trata o campo data foi modificado a forma como queremos armazena-lá. |
