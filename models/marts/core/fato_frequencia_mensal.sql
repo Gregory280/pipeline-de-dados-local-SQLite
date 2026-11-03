@@ -1,6 +1,6 @@
-DELETE FROM fato_alunos_frequencia_mensal;
+DELETE FROM fato_frequencia_mensal;
 
-INSERT INTO fato_alunos_frequencia_mensal (
+INSERT INTO fato_frequencia_mensal (
     aluno_id,
     data_referencia,
     ano,

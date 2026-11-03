@@ -1,4 +1,4 @@
-CREATE TABLE fato_matriculas_frequencia_mensal (
+CREATE TABLE fato_frequencia_mensal (
 	aluno_id,
 	data_referencia TEXT NOT NULL,
 	ano INTEGER NOT NULL,
