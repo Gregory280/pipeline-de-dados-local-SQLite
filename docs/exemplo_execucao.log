@@ -1,0 +1,26 @@
+Inicio: 03/11/2026 15:06:22,21
+
+Carregando dados...
+
+Execu��o dos modelos...
+Lendo: stg_alunos.sql
+Lendo: stg_planos.sql
+Lendo: stg_matriculas.sql
+Lendo: stg_pagamentos.sql
+Lendo: stg_presencas.sql
+Lendo: int_matriculas_detalhadas.sql
+Lendo: int_alunos_frequencia.sql
+Lendo: int_alunos_frequencia_mensal.sql
+Lendo: dim_aluno.sql
+Lendo: dim_plano.sql
+Lendo: fato_frequencia_mensal.sql
+Lendo: fato_matricula.sql
+Lendo: fato_pagamento.sql
+Lendo: fato_presenca.sql
+Executando models...
+Modelos executados com sucesso.
+
+Pipeline conclu�do com sucesso...
+
+Fim: 03/11/2026 15:06:32,23
+Codigo de saida: 0
