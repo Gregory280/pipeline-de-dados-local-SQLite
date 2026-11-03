@@ -6,6 +6,7 @@ from pathlib import Path
 SOURCE = Path(__file__).resolve().parents[1]
 # Banco de dados
 DATABASE = SOURCE / "db" / "warehouse.db"
+BACKUPS = SOURCE / "db" / "backups"
 # Dados
 RAW = SOURCE / "data" / "raw"
 # Scripts SQL
