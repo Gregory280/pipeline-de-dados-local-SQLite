@@ -25,14 +25,14 @@ def mostrar_resumo(duracao):
     ],
   }
 
-  cnn = sqlite3.connect(DATABASE)
+  conn = sqlite3.connect(DATABASE)
 
   try:
     print("\n========== RESUMO DA EXECUÇÃO ==========")
     for grupo, tabelas in grupos.items():
       print(f"\n{grupo}")
       for tabela in tabelas:
-        quantidade = cnn.execute(f"SELECT COUNT(*) FROM {tabela}").fetchone()[0]
+        quantidade = conn.execute(f"SELECT COUNT(*) FROM {tabela}").fetchone()[0]
         quantidade_formatada = (f"{quantidade:,}".replace(",", "."))
         print(
           f"  {tabela}: "
@@ -42,4 +42,4 @@ def mostrar_resumo(duracao):
     print("=======================================")
 
   finally:
-    cnn.close()
+    conn.close()
