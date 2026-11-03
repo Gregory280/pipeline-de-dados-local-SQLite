@@ -14,6 +14,4 @@ SCHEMAS = SOURCE / "db" / "schemas"
 STAGING = SOURCE / "models" / "staging"
 INTERMEDIATE = SOURCE / "models" / "intermediate"
 CORE = SOURCE / "models" / "marts" / "core"
-
-
-
+VALIDATIONS = SOURCE / "models" / "validations"

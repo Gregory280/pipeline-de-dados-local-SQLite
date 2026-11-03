@@ -1,6 +1,7 @@
 import sqlite3
 
 from config import DATABASE, STAGING, INTERMEDIATE, CORE
+from validations import validar_modelos
 
 def atualizar_modelos():
   arqs = [
@@ -34,8 +35,10 @@ def atualizar_modelos():
 
   conn = sqlite3.connect(DATABASE)
   try:
-    print("Executando models...")
+    print("Executando modelos...")
     conn.executescript(script)
+    validar_modelos(conn)
+    conn.commit()
     print("Modelos executados com sucesso.")
   except Exception:
     conn.rollback()

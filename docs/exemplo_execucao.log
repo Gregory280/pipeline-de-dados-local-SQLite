@@ -1,4 +1,7 @@
-Inicio: 03/11/2026 15:06:22,21
+Inicio: 03/11/2026 19:21:12,86
+
+Criando backup do banco de dados...
+Backup criado: warehouse_backup.db
 
 Carregando dados...
 
@@ -17,10 +20,38 @@ Lendo: fato_frequencia_mensal.sql
 Lendo: fato_matricula.sql
 Lendo: fato_pagamento.sql
 Lendo: fato_presenca.sql
-Executando models...
+Executando modelos...
+
+Iniciando valida��es...
+OK | validar_quantidade.sql
+OK | validar_total_pagamentos.sql
+Todas as valida��es passaram.
 Modelos executados com sucesso.
+
+========== RESUMO DA EXECU��O ==========
+
+TABELAS RAW
+  raw_alunos: 2.002 registros
+  raw_planos: 6 registros
+  raw_matriculas: 7.238 registros
+  raw_pagamentos: 28.895 registros
+  raw_presencas: 99.898 registros
+
+DIMENS�ES
+  dim_aluno: 2.002 registros
+  dim_plano: 6 registros
+  dim_data: 5.844 registros
+
+FATOS
+  fato_matricula: 7.238 registros
+  fato_pagamento: 28.895 registros
+  fato_presenca: 99.898 registros
+  fato_frequencia_mensal: 27.947 registros
+
+Dura��o da carga: 11.13 segundos
+=======================================
 
 Pipeline conclu�do com sucesso...
 
-Fim: 03/11/2026 15:06:32,23
+Fim: 03/11/2026 19:21:24,98
 Codigo de saida: 0
