@@ -2,7 +2,7 @@
 
 Pipeline de dados local para uma academia desenvolvido com Python, SQL e SQLite. O projeto transforma arquivos Excel em um modelo dimensional preparado para consultas, indicadores e relatórios.
 
-Os dados são fictícios e simulam exportações de sistemas de gestão de academia.
+Os dados simulam exportações de sistemas de gestão de academia.
 
 ## Objetivo
 
